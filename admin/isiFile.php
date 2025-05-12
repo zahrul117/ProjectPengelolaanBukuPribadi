@@ -14,7 +14,10 @@
         }
         //untuk buku
         elseif($page=='tampilBuku') {
-            include "tampilBuku.php";
+            include "BukuTampil.php";
+        }
+        elseif($page=='tambahBuku'){
+            include "BukuTambah.php";
         }
 
         // untuk whislist buku

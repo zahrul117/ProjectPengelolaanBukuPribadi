@@ -1,44 +1,74 @@
-  <!-- Content -->
-    <main class="flex-1 p-6">
-        <!-- Info Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            <div class="bg-white p-4 rounded-lg shadow text-center">
-                <h2 class="text-sm text-gray-500">Total Buku</h2>
-                <p class="text-3xl font-bold text-blue-700">120</p>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow text-center">
-                <h2 class="text-sm text-gray-500">Pengguna</h2>
-                <p class="text-3xl font-bold text-blue-700">35</p>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow text-center">
-                <h2 class="text-sm text-gray-500">Kategori</h2>
-                <p class="text-3xl font-bold text-blue-700">10</p>
-            </div>
-        </div>
+<?php
+require 'functions.php';
 
-        <!-- Table -->
-        <div class="bg-white rounded-lg shadow overflow-x-auto">
-            <table class="min-w-full text-sm text-gray-700">
-                <thead class="bg-gray-100 border-b">
+$jumlah = totalBuku();
+$totalBelumDibaca = hitungBukuBelumDibaca();
+$totalSudahDibaca = hitungBukuSudahDibaca();
+$daftarBuku = ambilBuku("SELECT * FROM buku");
+
+?>
+<!-- Content -->
+<main class="flex-1 p-6">
+    <!-- Info Cards -->
+    <div class="grid grid-cols-2 gap-10 mb-6">
+        <div class="bg-white p-4 rounded-lg shadow text-center">
+            <h2 class="text-sm text-gray-500">Total Buku</h2>
+            <p class="text-3xl font-bold text-blue-700"><?= $jumlah ?></p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow text-center">
+            <h2 class="text-sm text-gray-500">Sudah Dibaca</h2>
+            <p class="text-3xl font-bold text-blue-700"><?= $totalSudahDibaca ?></p>
+        </div>
+    </div>
+
+    <!-- Buku Terbaru -->
+    <div class="mb-10">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">📘 Buku Terbaru</h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white rounded-lg shadow">
+                <thead class="bg-indigo-600 text-white">
                     <tr>
-                        <th class="text-left px-6 py-3">Judul</th>
-                        <th class="text-left px-6 py-3">Penulis</th>
-                        <th class="text-left px-6 py-3">Kategori</th>
-                        <th class="text-left px-6 py-3">Aksi</th>
+                        <th class="px-4 py-2 text-left">Judul</th>
+                        <th class="px-4 py-2 text-left">Penulis</th>
+                        <th class="px-4 py-2 text-left">Status</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="border-b">
-                        <td class="px-6 py-4">Belajar Tailwind CSS</td>
-                        <td class="px-6 py-4">Rul</td>
-                        <td class="px-6 py-4">Pemrograman</td>
-                        <td class="px-6 py-4">
-                            <button class="text-blue-500 hover:underline">Edit</button>
-                            <button class="text-red-500 hover:underline ml-3">Hapus</button>
-                        </td>
-                    </tr>
-                    <!-- Tambah baris lain -->
-                </tbody>
+                <?php foreach ($daftarBuku as $buku) : ?>
+                    <tbody class="text-gray-700">
+                        <tr class="border-b hover:bg-gray-100">
+                            <td class="px-4 py-2"><?= $buku['judul']; ?></td>
+                            <td class="px-4 py-2"><?= $buku['penulis'] ?></td>
+                            <td class="px-4 py-2">
+                                <span class="px-2 py-1 rounded text-white
+        <?= $buku['status'] === 'Sudah Dibaca' ? 'bg-green-500' : 'bg-red-500'; ?>">
+                                    <?= $buku['status']; ?>
+                                </span>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                <?php endforeach; ?>
             </table>
         </div>
-    </main>
+    </div>
+
+    <!-- Wishlist Buku -->
+    <div class="mb-10">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">⭐ Wishlist Buku</h2>
+        <div class="flex gap-6 overflow-x-auto">
+            <div class="w-40 bg-white rounded-lg shadow p-2 text-center">
+                <img src="assets/img/atomic.jpg" alt="Atomic Habits" class="w-full h-48 object-cover rounded">
+                <p class="mt-2 font-medium">Atomic Habits</p>
+            </div>
+            <div class="w-40 bg-white rounded-lg shadow p-2 text-center">
+                <img src="assets/img/filosofi.jpg" alt="Filosofi Teras" class="w-full h-48 object-cover rounded">
+                <p class="mt-2 font-medium">Filosofi Teras</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pengingat -->
+    <div class="bg-yellow-100 p-4 border-l-4 border-yellow-400 text-yellow-700 rounded shadow">
+        <p>📢 Kamu masih memiliki <strong><?= $totalBelumDibaca ?> buku</strong> yang belum dibaca. Yuk mulai hari ini!</p>
+    </div>
+</main>
