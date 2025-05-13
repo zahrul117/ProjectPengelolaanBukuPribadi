@@ -1,7 +1,7 @@
 <?php
 require 'admin/functions.php';
 
-$daftarBuku = ambilBuku("SELECT * FROM buku");
+$daftarBuku = query("SELECT * FROM buku");
 
 
 ?>

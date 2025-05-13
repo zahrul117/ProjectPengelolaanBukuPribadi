@@ -3,7 +3,7 @@ $konek = mysqli_connect('localhost', 'root', '', 'kelolabuku');
 
 
 // ambil buku
-function ambilBuku($query){
+function query($query){
     global $konek;
     $result = mysqli_query($konek,$query);
     $books = [];

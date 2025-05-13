@@ -2,7 +2,7 @@
 require 'functions.php';
 
 
-$daftarBuku = ambilBuku("SELECT * FROM buku");
+$daftarBuku = query("SELECT * FROM buku");
 ?>
 
 <!-- Daftar Buku (Tabel) -->

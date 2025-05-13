@@ -24,6 +24,11 @@
         elseif($page=='wishlistBuku'){
             include "wishlistBuku.php";
         }
+
+        // untuk ulasan buku
+        elseif($page=='tampilUlasan'){
+            include "UlasanTampil.php";
+        }
     }else {
         include "home.php";
     }

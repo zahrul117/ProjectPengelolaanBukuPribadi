@@ -4,7 +4,8 @@ require 'functions.php';
 $jumlah = totalBuku();
 $totalBelumDibaca = hitungBukuBelumDibaca();
 $totalSudahDibaca = hitungBukuSudahDibaca();
-$daftarBuku = ambilBuku("SELECT * FROM buku");
+$daftarBuku = query("SELECT * FROM buku");
+$daftarWishlist = query("SELECT * FROM wishlist")
 
 ?>
 <!-- Content -->
@@ -56,14 +57,12 @@ $daftarBuku = ambilBuku("SELECT * FROM buku");
     <div class="mb-10">
         <h2 class="text-2xl font-semibold text-gray-800 mb-4">⭐ Wishlist Buku</h2>
         <div class="flex gap-6 overflow-x-auto">
+            <?php foreach($daftarWishlist as $wishlist) : ?>
             <div class="w-40 bg-white rounded-lg shadow p-2 text-center">
-                <img src="assets/img/atomic.jpg" alt="Atomic Habits" class="w-full h-48 object-cover rounded">
-                <p class="mt-2 font-medium">Atomic Habits</p>
+                <img src="../assets/img/wishlist/<?= $wishlist['gambar']?>" alt="Atomic Habits" class="w-full h-48 object-cover rounded">
+                <p class="mt-2 font-medium"><?= $wishlist['judulBuku'];?></p>
             </div>
-            <div class="w-40 bg-white rounded-lg shadow p-2 text-center">
-                <img src="assets/img/filosofi.jpg" alt="Filosofi Teras" class="w-full h-48 object-cover rounded">
-                <p class="mt-2 font-medium">Filosofi Teras</p>
-            </div>
+            <?php endforeach;?>
         </div>
     </div>
 
@@ -71,4 +70,4 @@ $daftarBuku = ambilBuku("SELECT * FROM buku");
     <div class="bg-yellow-100 p-4 border-l-4 border-yellow-400 text-yellow-700 rounded shadow">
         <p>📢 Kamu masih memiliki <strong><?= $totalBelumDibaca ?> buku</strong> yang belum dibaca. Yuk mulai hari ini!</p>
     </div>
-</main>
+</main>-
