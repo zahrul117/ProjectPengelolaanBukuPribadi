@@ -54,17 +54,20 @@ $daftarWishlist = query("SELECT * FROM wishlist")
     </div>
 
     <!-- Wishlist Buku -->
+    <!-- Wishlist Buku -->
     <div class="mb-10">
         <h2 class="text-2xl font-semibold text-gray-800 mb-4">⭐ Wishlist Buku</h2>
-        <div class="flex gap-6 overflow-x-auto">
-            <?php foreach($daftarWishlist as $wishlist) : ?>
-            <div class="w-40 bg-white rounded-lg shadow p-2 text-center">
-                <img src="../assets/img/wishlist/<?= $wishlist['gambar']?>" alt="Atomic Habits" class="w-full h-48 object-cover rounded">
-                <p class="mt-2 font-medium"><?= $wishlist['judulBuku'];?></p>
-            </div>
-            <?php endforeach;?>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <?php foreach ($daftarWishlist as $wishlist) : ?>
+                <div class="bg-white rounded-lg shadow p-3 text-center">
+                    <img src="../assets/img/wishlist/<?= $wishlist['gambar'] ?>" alt="<?= $wishlist['judulBuku'] ?>" class="w-full h-48 object-cover rounded">
+                    <p class="mt-2 font-medium text-gray-800"><?= $wishlist['judulBuku']; ?></p>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
+
 
     <!-- Pengingat -->
     <div class="bg-yellow-100 p-4 border-l-4 border-yellow-400 text-yellow-700 rounded shadow">

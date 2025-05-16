@@ -19,15 +19,27 @@
         elseif($page=='tambahBuku'){
             include "BukuTambah.php";
         }
+        elseif($page=='hapusBuku'){
+            include "BukuHapus.php";
+        }
 
         // untuk whislist buku
         elseif($page=='wishlistBuku'){
-            include "wishlistBuku.php";
+            include "wishlistTampil.php";
+        }
+        elseif($page=='tambahWishlist'){
+            include "wishlistTambah.php";
+        }
+        elseif($page=='hapusWishlist'){
+            include "wishlistHapus.php";
         }
 
         // untuk ulasan buku
         elseif($page=='tampilUlasan'){
             include "UlasanTampil.php";
+        }
+        elseif($page=='tambahUlasan'){
+            include "UlasanTambah.php";
         }
     }else {
         include "home.php";

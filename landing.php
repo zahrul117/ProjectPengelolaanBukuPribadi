@@ -60,42 +60,26 @@ $daftarBuku = query("SELECT * FROM buku");
     <section id="daftarBuku" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Daftar Buku Saya</h2>
-
-            <!-- Tabel Daftar Buku -->
-            <div class="overflow-y-auto max-h-[300px]">
-                <table class="w-5xl bg-white rounded-lg shadow-lg mx-auto">
-                    <thead class="bg-gradient-to-r from-indigo-600 to-indigo-500 text-white">
-                        <tr>
-                            <th class="px-6 py-4 text-left">No</th>
-                            <th class="px-6 py-4 text-left">Judul Buku</th>
-                            <th class="px-6 py-4 text-left">Penulis</th>
-                            <th class="px-6 py-4 text-left">Penerbit</th>
-                            <th class="px-6 py-4 text-left">Tahun Terbit</th>
-                            <th class="px-6 py-4 text-left">Kategori</th>
-                            <th class="px-6 py-4 text-left">Status</th>
-                            <th class="px-6 py-4 text-left">Gambar</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-700">
-                        <?php $no = 1;
-                        foreach($daftarBuku as $buku) : ?>
-                            <tr class="border-b border-gray-200 hover:bg-indigo-100 transition-all duration-300">
-                                <td class="px-6 py-4"><?= $no++; ?></td>
-                                <td class="px-6 py-4 font-semibold text-blue-700"><?= $buku['judul']; ?></td>
-                                <td class="px-6 py-4"><?= $buku['penulis'] ?></td>
-                                <td class="px-6 py-4"><?= $buku['penerbit'] ?></td>
-                                <td class="px-6 py-4"><?= $buku['tahunTerbit'] ?></td>
-                                <td class="px-6 py-4"><?= $buku['kategori'] ?></td>
-                                <td class="px-6 py-4"><?= $buku['status'] ?></td>
-                                <td class="px-6 py-4"><img src="assets/img/buku/<?= $buku['gambar'] ?>" alt="" width="150"></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-        </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card Buku 1 -->
+                <?php foreach ($daftarBuku as $buku) : ?>
+                    <div class="bg-white rounded-xl shadow-md overflow-auto text-center p-4 ">
+                        <img src="assets/img/buku/<?= $buku['gambar'] ?>" alt="Buku 1" class="w-48 h-48 mx-auto object-cover rounded mt-8">
+                        <div class="mt-4 space-y-2">
+                            <h3 class="text-lg font-semibold"><?= $buku['judul'] ?></h3>
+                            <p class="text-sm text-gray-500">Penulis: <?= $buku['penulis'] ?></p>
+                            <p class="text-sm text-gray-500">Tahun Terbit: <?= $buku['tahunTerbit'] ?></p>
+                            <p class="text-sm text-gray-500 mb-3">Kategori: <?= $buku['kategori']; ?></p>
+                            <a href="<?= $buku['judul'] ?>.php?judul=<?= $buku['judul'] ?>&penulis=<?= $buku['penulis'] ?>&tahunTerbit=<?= $buku['tahunTerbit'] ?>&kategori=<?= $buku['kategori'] ?>&deskripsi=<?= $buku['deskripsi'] ?>&gambar=<?= $buku['gambar'] ?>" class="py-1 px-3 bg-blue-500 mt-5 rounded text-white hover:bg-blue-950">Detail</a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
 
         </div>
     </section>
+
+
     <!-- Galeri Buku (Card) -->
     <!-- Galeri Buku (Hover Effect) -->
     <section id="galeriSaya" class="py-10 bg-gray-50 h-screen">
