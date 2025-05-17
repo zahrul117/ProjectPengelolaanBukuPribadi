@@ -63,6 +63,7 @@ $daftarWishlist = query("SELECT * FROM wishlist")
                 <div class="bg-white rounded-lg shadow p-3 text-center">
                     <img src="../assets/img/wishlist/<?= $wishlist['gambar'] ?>" alt="<?= $wishlist['judulBuku'] ?>" class="w-full h-48 object-cover rounded">
                     <p class="mt-2 font-medium text-gray-800"><?= $wishlist['judulBuku']; ?></p>
+                    <p class="mt-2 text-sm text-gray-800"><?= $wishlist['kategori']; ?></p>
                 </div>
             <?php endforeach; ?>
         </div>

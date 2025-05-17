@@ -129,3 +129,61 @@ function hapusWishlist($id){
 
     return mysqli_affected_rows($konek);
 }
+
+// function untuk edit
+// edit buku
+function editBuku($data){
+     global $konek;
+
+    $id = $data['id'];
+    $judul = htmlspecialchars($data['judul']);
+    $penulis = htmlspecialchars($data['penulis']);
+    $tahunTerbit = htmlspecialchars($data['tahunTerbit']);
+    $kategori = htmlspecialchars($data['kategori']);
+    $status = htmlspecialchars($data['status']);
+    $gambar = htmlspecialchars($data['gambar']);
+    $deskripsi = htmlspecialchars($data['deskripsi']);
+
+    $query = "UPDATE buku SET
+                judul = '$judul',
+                penulis = '$penulis',
+                tahunTerbit = '$tahunTerbit',
+                kategori = '$kategori',
+                `status` = '$status',
+                gambar = '$gambar',
+                deskripsi = '$deskripsi'
+                WHERE id_buku = '$id';
+            ";
+
+    mysqli_query($konek, $query);
+
+    return mysqli_affected_rows($konek);
+}
+
+function editWishlist($data){
+    global $konek;
+
+    $id = $data['id'];
+    $judul = htmlspecialchars($data['judulBuku']);
+    $penulis = htmlspecialchars($data['penulis']);
+    $kategori = htmlspecialchars($data['kategori']);
+    $alasan = htmlspecialchars($data['alasan']);
+    $gambar = htmlspecialchars($data['gambar']);
+    $tanggalDiTambahkan = htmlspecialchars($data['tanggalDiTambahkan']);
+    $linkBeli = htmlspecialchars($data['linkBeli']);
+
+    $query = "UPDATE wishlist SET
+                judulBuku = '$judul',
+                penulis = '$penulis',
+                kategori = '$kategori',
+                alasan = '$alasan',
+                gambar = '$gambar',
+                tanggalDiTambahkan = '$tanggalDiTambahkan',
+                linkBeli = '$linkBeli'
+                WHERE id_wishlist = '$id';
+                ";
+
+    mysqli_query($konek, $query);
+
+    return mysqli_affected_rows($konek);
+}

@@ -46,7 +46,7 @@ $daftarBuku = query("SELECT * FROM buku");
                                 <img src="../assets/img/buku/<?= $buku['gambar'] ?>" alt="" width="70">
                             </td>
                             <td class="px-6 py-4">
-                                <a href="" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-white text-sm px-3 py-1 rounded mr-2 transition">Edit</a>
+                                <a href="?page=editBuku&id=<?= $buku['id_buku']?>]" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-white text-sm px-3 py-1 rounded mr-2 transition">Edit</a>
                                 <a href="#" onclick="confirmDelete(<?= $buku['id_buku'] ?>)" class="inline-block bg-red-500 hover:bg-red-600 text-white text-sm px-3 py-1 rounded transition">Delete</a>
                             </td>
                         </tr>

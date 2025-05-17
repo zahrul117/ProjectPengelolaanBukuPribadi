@@ -22,6 +22,9 @@
         elseif($page=='hapusBuku'){
             include "BukuHapus.php";
         }
+        elseif($page=='editBuku'){
+            include "BukuEdit.php";
+        }
 
         // untuk whislist buku
         elseif($page=='wishlistBuku'){
@@ -32,6 +35,9 @@
         }
         elseif($page=='hapusWishlist'){
             include "wishlistHapus.php";
+        }
+        elseif($page=='editWishlist'){
+            include "wishlistEdit.php";
         }
 
         // untuk ulasan buku
