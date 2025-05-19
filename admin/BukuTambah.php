@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
 
         <div class="col-span-1">
             <label for="gambar" class="block mb-1 font-medium text-gray-700">Gambar (URL atau nama file)</label>
-            <input type="text" name="gambar" id="gambar" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <input type="file" name="gambar" id="gambar" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
         </div>
 
         <div class="col-span-2">

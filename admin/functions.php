@@ -58,8 +58,12 @@ function tambahBuku($data)
     $tahunTerbit = htmlspecialchars($data['tahunTerbit']);
     $kategori = htmlspecialchars($data['kategori']);
     $status = htmlspecialchars($data['status']);
-    $gambar = htmlspecialchars($data['gambar']);
     $deskripsi = htmlspecialchars($data['deskripsi']);
+
+    $gambar = uploadGambarBuku();
+    if (!$gambar) {
+        return false;
+    }
 
     $query = "INSERT INTO buku
                 Values
@@ -71,17 +75,67 @@ function tambahBuku($data)
     return mysqli_affected_rows($konek);
 }
 
+// function uploadGambarBuku
+function uploadGambarBuku()
+{
+    $namaFile = $_FILES['gambar']['name'];
+    $ukuranFile = $_FILES['gambar']['size'];
+    $error = $_FILES['gambar']['error'];
+    $tmpName = $_FILES['gambar']['tmp_name'];
+
+    if ($error === 4) {
+        echo "
+        <script>
+        alert('Pilih gambar terlebih dahulu');
+        </script>
+        ";
+        return false;
+    }
+
+    $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiGambar = explode('.', $namaFile);
+    $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+    if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
+        echo "
+        <script>
+        alert('yang anda upload bukan gambar')
+        </script>
+        ";
+        return false;
+    }
+
+    if($ukuranFile > 1000000){
+        echo "
+        <script>
+        alert('ukuran gambar terlalu besar')
+        </script>
+        ";
+        return false;
+    }
+
+    move_uploaded_file($tmpName, '../assets/img/buku/' . $namaFile);
+
+    return $namaFile;
+}
+
+
 // tambah Wishlist
-function tambahWishlist($data){
+function tambahWishlist($data)
+{
     global $konek;
 
     $judul = htmlspecialchars($data['judulBuku']);
     $penulis = htmlspecialchars($data['penulis']);
     $kategori = htmlspecialchars($data['kategori']);
     $alasan = htmlspecialchars($data['alasan']);
-    $gambar = htmlspecialchars($data['gambar']);
     $tanggalDiTambahkan = htmlspecialchars($data['tanggalDiTambahkan']);
     $linkBeli = htmlspecialchars($data['linkBeli']);
+
+        $gambar = uploadGambarWishlist();
+    if (!$gambar) {
+        return false;
+    }
 
     $query = "INSERT INTO wishlist
                 Values
@@ -91,11 +145,54 @@ function tambahWishlist($data){
     mysqli_query($konek, $query);
 
     return mysqli_affected_rows($konek);
+}
 
+function uploadGambarWishlist()
+{
+    $namaFile = $_FILES['gambar']['name'];
+    $ukuranFile = $_FILES['gambar']['size'];
+    $error = $_FILES['gambar']['error'];
+    $tmpName = $_FILES['gambar']['tmp_name'];
+
+    if ($error === 4) {
+        echo "
+        <script>
+        alert('Pilih gambar terlebih dahulu');
+        </script>
+        ";
+        return false;
+    }
+
+    $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiGambar = explode('.', $namaFile);
+    $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+    if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
+        echo "
+        <script>
+        alert('yang anda upload bukan gambar')
+        </script>
+        ";
+        return false;
+    }
+
+    if($ukuranFile > 1000000){
+        echo "
+        <script>
+        alert('ukuran gambar terlalu besar')
+        </script>
+        ";
+        return false;
+    }
+
+    move_uploaded_file($tmpName, '../assets/img/wishlist/' . $namaFile);
+
+    return $namaFile;
 }
 
 // tambah ulasan
-function tambahUlasan($data){
+function tambahUlasan($data)
+{
     global $konek;
 
     $judul = htmlspecialchars($data['judulBuku']);
@@ -107,13 +204,14 @@ function tambahUlasan($data){
                 Values
                 ('','$judul','$komentar','$rating','$tanggal')
                 ";
-    mysqli_query($konek,$query);
+    mysqli_query($konek, $query);
 
     return mysqli_affected_rows($konek);
 }
 // function untuk hapus
 // hapus buku
-function hapusBuku($id){
+function hapusBuku($id)
+{
     global $konek;
 
     mysqli_query($konek, "DELETE FROM buku WHERE id_buku = '$id'");
@@ -122,7 +220,8 @@ function hapusBuku($id){
 }
 
 //hapus Wishlist
-function hapusWishlist($id){
+function hapusWishlist($id)
+{
     global $konek;
 
     mysqli_query($konek, "DELETE FROM wishlist WHERE id_wishlist = '$id'");
@@ -132,8 +231,9 @@ function hapusWishlist($id){
 
 // function untuk edit
 // edit buku
-function editBuku($data){
-     global $konek;
+function editBuku($data)
+{
+    global $konek;
 
     $id = $data['id'];
     $judul = htmlspecialchars($data['judul']);
@@ -160,7 +260,8 @@ function editBuku($data){
     return mysqli_affected_rows($konek);
 }
 
-function editWishlist($data){
+function editWishlist($data)
+{
     global $konek;
 
     $id = $data['id'];
@@ -186,4 +287,17 @@ function editWishlist($data){
     mysqli_query($konek, $query);
 
     return mysqli_affected_rows($konek);
+}
+
+function cari($keyword)
+{
+
+    $query = "SELECT * FROM buku
+        WHERE
+        judul like '%$keyword%' OR
+        kategori like '%$keyword%' OR
+        `status` like '%$keyword%' 
+    ";
+
+    return query($query);
 }

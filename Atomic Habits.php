@@ -50,64 +50,68 @@
             </div>
         </div>
     </section>
-    <section class="bg-gray-100 px-6 py-12 sm:px-12 lg:px-32 font-sans">
-        <div class="max-w-5xl mx-auto">
-            <!-- Judul Utama -->
-            <h1 class="text-4xl font-bold text-center text-gray-800 mb-10">
-                📘 Prinsip Utama dari Buku <span class="text-blue-600">Atomic Habits</span>
-            </h1>
+    <div class="max-w-3xl mx-auto bg-white shadow-md rounded-xl p-6 space-y-6">
+        <h1 class="text-2xl font-bold text-center text-blue-600">Catatan Atomic Habits (Versi Saya Dalam Belajar Coding)</h1>
 
-            <!-- Prinsip Card -->
-            <div class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
-                <h2 class="text-2xl font-bold text-blue-700 mb-4">🔍 Prinsip Utama</h2>
-                <div class="space-y-6 text-gray-700 text-lg leading-relaxed">
-                    <div>
-                        <h4 class="text-xl font-semibold text-blue-600">1. Perubahan Kecil → Hasil Besar</h4>
-                        <p class="mt-2">➤ Perubahan 1% setiap hari mungkin tidak terasa, tapi dalam jangka panjang hasilnya luar biasa.</p>
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-blue-600">2. Identitas Lebih Penting daripada Tujuan</h4>
-                        <p class="mt-2">➤ Fokus bukan hanya pada <em>“aku ingin lulus”</em>, tapi <em>“aku adalah orang yang disiplin belajar setiap hari”</em>.</p>
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-blue-600">📏 Empat Hukum Perubahan Perilaku</h4>
-                        <ol class="list-decimal ml-6 mt-2 space-y-1">
-                            <li>Buatlah kebiasaan <strong>terlihat</strong> <em>(make it obvious)</em></li>
-                            <li>Buatlah <strong>menarik</strong> <em>(make it attractive)</em></li>
-                            <li>Buatlah <strong>mudah</strong> <em>(make it easy)</em></li>
-                            <li>Buatlah <strong>memuaskan</strong> <em>(make it satisfying)</em></li>
-                        </ol>
-                    </div>
+        <section>
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">1. Mulai dari yang kecil, yang penting konsisten</h2>
+            <p>
+                Belajar coding tidak harus langsung mahir. Cukup meningkat 1% setiap hari. Misalnya hari ini belajar <code>if else</code>,
+                besok lanjut ke <code>looping</code>. Jika dilakukan terus-menerus, kemampuan kita bisa meningkat 37 kali lebih baik dalam satu tahun dibanding saat pertama mulai.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">2. Catat setiap perkembangan kecil</h2>
+            <p>
+                Agar semangat terus terjaga, biasakan mencatat setiap kemajuan. Contoh: “Hari ini berhasil memahami function”, atau
+                “Sudah bisa membuat tombol yang memunculkan alert”. Bisa dicatat di sticky note, buku harian, atau aplikasi di ponsel.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">3. Terapkan 4 Hukum Atomic Habits</h2>
+
+            <div class="mt-4 space-y-4">
+
+                <div>
+                    <h3 class="font-semibold text-blue-600">Obvious – Buat kebiasaan jadi jelas</h3>
+                    <p>
+                        Jangan hanya berkata, “Saya ingin rajin ngoding.” Tapi lebih spesifik: “Setiap malam jam 8, saya akan belajar coding selama 30 menit dengan menyelesaikan latihan JavaScript.”
+                    </p>
                 </div>
-            </div>
 
-            <!-- Catatan Inspiratif Card -->
-            <div class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">📚 Catatan & Kutipan Inspiratif</h2>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 text-base">
-                    <li>Setiap tindakan kecil membentuk siapa kamu nantinya.</li>
-                    <li>Jangan terlalu fokus pada hasil sekarang. Lihat arahmu, bukan posisimu.</li>
-                    <li>Ritual kecil seperti menyiapkan meja belajar bisa memicu konsentrasi tinggi.</li>
-                </ul>
-            </div>
-
-            <!-- Tips Praktis Card -->
-            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">🛠️ Tips Praktis dari Buku</h2>
-                <div class="space-y-6 text-gray-700 text-base">
-                    <div>
-                        <h3 class="text-lg font-semibold text-blue-600">✔️ Gunakan Habit Stacking</h3>
-                        <p class="ml-4 mt-1">Contoh: Setelah aku <em>mandi pagi</em>, aku akan <em>membaca buku selama 10 menit</em>.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-blue-600">⏱️ Gunakan Aturan 2 Menit</h3>
-                        <p class="ml-4 mt-1">Alih-alih “mengerjakan coding project”, mulailah dengan “buka Visual Studio Code dan buka folder proyek”.</p>
-                    </div>
+                <div>
+                    <h3 class="font-semibold text-blue-600">Attractive – Buat kebiasaan jadi menarik</h3>
+                    <p>
+                        Gabungkan kegiatan belajar coding dengan hal yang disukai. Misalnya sambil mendengarkan musik yang menyenangkan atau sambil menikmati secangkir kopi.
+                    </p>
                 </div>
-            </div>
-        </div>
-    </section>
 
+                <div>
+                    <h3 class="font-semibold text-blue-600">Easy – Buat kebiasaan jadi mudah</h3>
+                    <p>
+                        Permudah langkah awal. Misalnya, siapkan laptop dan buka file project dari sore hari. Atau gunakan modul belajar yang sudah terstruktur agar tidak bingung mulai dari mana.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-blue-600">Satisfying – Buat kebiasaan terasa memuaskan</h3>
+                    <p>
+                        Setelah berhasil menyelesaikan sesi belajar, berikan hadiah kecil untuk diri sendiri. Misalnya menonton video sebentar, bermain game ringan, atau sekadar menikmati camilan favorit.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">Penutup</h2>
+            <p>
+                Tidak perlu langsung menjadi ahli. Yang penting adalah memiliki kebiasaan kecil yang dilakukan secara konsisten. Mulai dari peningkatan 1% per hari, maka seiring waktu, kemampuan akan terus berkembang. Pelan-pelan tapi pasti — itu kunci utamanya.
+            </p>
+        </section>
+    </div>
 </body>
 
 </html>

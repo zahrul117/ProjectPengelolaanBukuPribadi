@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
                 Swal.fire({
                     icon: "success",
                     title: "Berhasil!",
-                    text: "Buku berhasil ditambahkan!",
+                    text: "Buku berhasil diEdit!",
                     confirmButtonText: "OK"
                 }).then(() => {
                     window.location.href = "dashboard.php?page=tampilBuku";
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
                 Swal.fire({
                     icon: "error",
                     title: "Gagal!",
-                    text: "Buku gagal ditambahkan.",
+                    text: "Buku gagal diEdit!.",
                     confirmButtonText: "Coba Lagi"
                 }).then(() => {
                     window.location.href = "dashboard.php?page=tampilBuku";
@@ -92,7 +92,7 @@ if (isset($_POST['submit'])) {
 
         <div class="col-span-1">
             <label for="gambar" class="block mb-1 font-medium text-gray-700">Gambar (URL atau nama file)</label>
-            <input type="text" name="gambar" id="gambar" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" value="<?= $buku['gambar'] ?>">
+            <input type="text" name="gambar" id="gambar" required readonly class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" value="<?= $buku['gambar'] ?>">
         </div>
 
         <div class="col-span-2">

@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
 
 <div class="max-w-4xl mx-auto bg-gray-50 p-8 rounded-2xl shadow-lg mt-10">
     <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center">📌 Tambah Wishlist Buku</h2>
-    <form action="" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <form action="" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6" enctype="multipart/form-data">
 
         <div>
             <label for="judulBuku" class="block mb-1 font-medium text-gray-700">Judul Buku</label>
@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
 
         <div>
             <label for="gambar" class="block mb-1 font-medium text-gray-700">Gambar (URL atau nama file)</label>
-            <input type="text" name="gambar" id="gambar" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <input type="file" name="gambar" id="gambar" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
         </div>
 
         <div>
