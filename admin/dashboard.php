@@ -21,6 +21,7 @@
                 <a href="?page=tampilBuku" class="block px-4 py-2 rounded hover:bg-blue-700">Kelola Buku 📚</a>
                 <a href="?page=wishlistBuku" class="block px-4 py-2 rounded hover:bg-blue-700">Wishlist Buku ❤️</a>
                 <a href="?page=tampilUlasan" class="block px-4 py-2 rounded hover:bg-blue-700">Ulasan</a>
+                <a href="?page=formInputBobot" class="block px-4 py-2 rounded hover:bg-blue-700">SPK</a>
                 <a href="#" class="block px-4 py-2 rounded hover:bg-blue-700">Logout</a>
             </nav>
         </aside>

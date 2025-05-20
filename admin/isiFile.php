@@ -47,6 +47,14 @@
         elseif($page=='tambahUlasan'){
             include "UlasanTambah.php";
         }
+
+        // untuk spk wishlist
+        elseif($page=='formInputBobot'){
+            include "spk/formInputBobot.php";
+        }
+        elseif($page=='tampilBukuSPK'){
+            include "spk/tampilBuku.php";
+        }
     }else {
         include "home.php";
     }
